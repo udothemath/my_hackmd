@@ -2,8 +2,13 @@
 ###### tags: `info` `note`
 ---
 
-## Logistic
+## 摘要
 
+### 專案參與人員
+- 中研院：王釧茹老師、匡顯吉、張嘉元、簡伯銓
+- 玉山銀行：施晨揚經理、葉倚任副理、孫甫璋、蒲冠吉、陳品瑜
+
+### 時程 
 ```mermaid
 gantt
 dateFormat  YYYY-MM-DD
@@ -12,20 +17,34 @@ title Project Progress
 
 section Model Phase 1
 Kick-off:done, des1, 2020-05-04, 3w
-Data Discussion:active,  des2, 2020-05-25, 2w
+Data Discussion:active, des2, 2020-05-25, 2w
+Next Meeting?:active, des2, 2020-06-08, 2w
 section Model Phase 2
-Milestone:active,  des2, 2020-12-15, 2w
+End_of_2020:active,  des2, 2020-12-15, 2w
 ```
-### Meeting channel
+### 討論管道
 - [This HackMD](https://hackmd.io/UAZjUsvnQSKARtNsiKIgGQ?view)
 - [Google Meet](https://hangouts.google.com/hangouts/_/calendar/azRqYWx1bHMyam02MmlkcHE3ZG8xNHZhNmtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ.46272qnb89drrimi6u2kgtv707)
+- [Slack](https://cfda-clip.slack.com/#/)
 
+
+### 會議紀錄
+- [Latest Meeting](##Meeting)
+- [5/25 Data discussion](##5/25/2020_3-4pm)
+- [5/4 Kick-off](##5/4/2020_3-4pm)
 
 ---
+## Meeting
 
-<!-- [TOC] -->
+## 5/25/2020_3-4pm
+### 今日議程
+1. 建模資料討論
+2. 建模方法討論
+### 待辦
+1. 下次會議時間
+2. 下次報告形式與內容
 
-## 5/4/2020 3-4pm
+## 5/4/2020_3-4pm
 
 ### 與會人
 - 中研院：王釧茹老師、匡顯吉、張嘉元、簡伯銓
@@ -58,7 +77,7 @@ Milestone:active,  des2, 2020-12-15, 2w
 ### 衡量標準
 - 業務：名單轉換率
 - Baseline模型：若以分類問題來建模，建議使用AUC
-- Deep Learning模型：其他合適的對應衡量方法
+- Deep Learning模型：其他合適的衡量方法
 
 ### 現有模型成效
 - 無(僅有2018年的舊模型相關檔案)
