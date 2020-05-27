@@ -2,7 +2,7 @@
 ###### tags: `info` `note`
 ---
 
-## 摘要
+::: info
 
 ### 專案參與人員
 - 中研院：王釧茹老師、匡顯吉、張嘉元、簡伯銓
@@ -17,21 +17,22 @@ title Project Progress
 
 section Model Phase 1
 Kick-off:done, des1, 2020-05-04, 3w
-Data Discussion:active, des2, 2020-05-25, 2w
-Next Meeting?:active, des2, 2020-06-08, 2w
+Data Discussion:active, des2, 2020-05-25, 3w
+Next Meeting?:active, des2, 2020-06-15, 2w
 section Model Phase 2
 End_of_2020:active,  des2, 2020-12-15, 2w
 ```
 ### 討論管道
 - [This HackMD](https://hackmd.io/UAZjUsvnQSKARtNsiKIgGQ?view)
-- [Google Meet](https://hangouts.google.com/hangouts/_/calendar/azRqYWx1bHMyam02MmlkcHE3ZG8xNHZhNmtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ.46272qnb89drrimi6u2kgtv707)
 - [Slack](https://cfda-clip.slack.com/#/)
+- Google Meet: invitation will be provided at the end of the meeting 
 
 
 ### 會議紀錄
 - [Latest Meeting](##Meeting)
 - [5/25 Data discussion](##5/25/2020_3-4pm)
 - [5/4 Kick-off](##5/4/2020_3-4pm)
+:::
 
 ---
 ## Meeting
@@ -39,10 +40,29 @@ End_of_2020:active,  des2, 2020-12-15, 2w
 ## 5/25/2020_3-4pm
 ### 今日議程
 1. 建模資料討論
-2. 建模方法討論
+    - [Brief EDA](https://datastudio.google.com/reporting/2e6c7be5-764c-4641-a8e3-27617321937a)
+1. 建模方法討論
 ### 待辦
 1. 下次會議時間
 2. 下次報告形式與內容
+3. 跟CFT確認幾天給一次名單合適，模型預測幾天內會購買?
+2. USER id多久會回訪?
+3. 這幾個月Y的分布是不是一樣?
+4. 確認ID對不上的情況
+5. TRAIN-TEST split、baseline
+
+### 與會人
+- 中研院：王釧茹老師、匡顯吉、張嘉元、簡伯銓
+- 玉山銀行：晨揚經理、倚任副理、甫璋、冠吉(會議記錄)、品瑜
+
+### 會議記錄
+1. 確認有下載資料權限
+2. y=1是4月，建模的資料不可以用到，實用是多久更新一次，幾天給名單?需再跟業管單位確認
+3. 只用4月當Y=1會不會bias?
+4. 瀏覽紀錄的次數(每個ID看過幾頁)也許是個強特徵
+5. 有2筆特別的id格式，刪除。
+6. 7z、gzip壓縮
+7. 模型預想：以頁面為端點、一定時間內同時看過連線(Network)；end to end binary classification
 
 ## 5/4/2020_3-4pm
 
