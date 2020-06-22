@@ -16,9 +16,9 @@ axisFormat %-m/%-d
 title Project Progress
 
 section Model Phase 1
+Next Meeting?:active, des2, 2020-06-22, 2w
+Data Discussion:active, des2, 2020-05-25, 4w
 Kick-off:done, des1, 2020-05-04, 3w
-Data Discussion:active, des2, 2020-05-25, 3w
-Next Meeting?:active, des2, 2020-06-15, 2w
 section Model Phase 2
 End_of_2020:active,  des2, 2020-12-15, 2w
 ```
@@ -37,19 +37,51 @@ End_of_2020:active,  des2, 2020-12-15, 2w
 ---
 ## Meeting
 
+## 6/22/2020
+### 與會人
+- 中研院：王釧茹老師、匡顯吉、張嘉元、簡伯銓
+- 玉山銀行：甫璋、冠吉(會議記錄)、品瑜
+
+### Recap
+> 在Google(or Facebook)廣告通路上，提供曾經瀏覽過玉山網頁的顧客所需要的產品/服務。現行的廣告投放名單篩選機制是根據顧客的網頁瀏覽行為，透過人工定義的條件篩選得出，惟此方法的篩選機制需要人工判斷，此專案希望可以藉由機器學習方法，降低人工調整名單的成本，提升名單轉換率，並發現活躍顧客的重要特徵。
+
+### 今日議程
+#### 方法討論
+1. [瀏覽器cookie特性](https://datastudio.google.com/u/0/reporting/2e6c7be5-764c-4641-a8e3-27617321937a/page/3wsSB)
+1. 模型: 協同過濾方法(Collaborative filtering)
+    - ![](https://i.imgur.com/ANIoPlt.png)
+1. 驗證方法: precision, recall, or [MAP@N, mean average precision @ N](https://medium.com/@bond.kirill.alexandrovich/precision-and-recall-in-recommender-systems-and-some-metrics-stuff-ca2ad385c5f8)
+1. 資料處理:
+    - 資料分割: 過去__天的ＵＲＬ造訪紀錄(建議短天期: 3-7天)，預測未來7天是否造訪產品申請頁面
+    - 目前規劃僅使用短天期的網頁瀏覽行為建模的兩個原因如下
+        - 瀏覽器cookie容易失效的特性
+        - 藉由資料EDA以及業務的了解，顧客通常會在短時間即有信貸/卡友貸的需求
+
+
 ## 5/25/2020_3-4pm
+### 與會人
+- 中研院：王釧茹老師、匡顯吉、張嘉元、簡伯銓
+- 玉山銀行：晨揚經理、倚任副理、甫璋、冠吉、品瑜(會議記錄)
+
 ### 今日議程
 1. 建模資料討論
     - [Brief EDA](https://datastudio.google.com/reporting/2e6c7be5-764c-4641-a8e3-27617321937a)
 1. 建模方法討論
 ### 待辦
-1. 下次會議時間
-2. 下次報告形式與內容
-3. 跟CFT確認幾天給一次名單合適，模型預測幾天內會購買?
-2. USER id多久會回訪?
-3. 這幾個月Y的分布是不是一樣?
-4. 確認ID對不上的情況
-5. TRAIN-TEST split、baseline
+1. 下次會議時間:
+    - 2020-06-22 3-4pm
+1. 下次報告形式與內容
+    - TBD
+1. 跟CFT確認幾天給一次名單合適，模型預測幾天內會購買?
+    - (原訂30天，但需要再討論業務場景)
+1. USER id多久會回訪?
+    - 請參考資料源
+1. 這幾個月Y的分布是不是一樣?
+    - 是，分布情況雷同
+1. 確認ID對不上的情況
+    - 確認ID無誤
+1. TRAIN-TEST split、baseline
+    - TBD
 
 ### 與會人
 - 中研院：王釧茹老師、匡顯吉、張嘉元、簡伯銓
@@ -57,15 +89,16 @@ End_of_2020:active,  des2, 2020-12-15, 2w
 
 ### 會議記錄
 1. 確認有下載資料權限
-2. y=1是4月，建模的資料不可以用到，實用是多久更新一次，幾天給名單?需再跟業管單位確認
-3. 只用4月當Y=1會不會bias?
-4. 瀏覽紀錄的次數(每個ID看過幾頁)也許是個強特徵
-5. 有2筆特別的id格式，刪除。
-6. 7z、gzip壓縮
-7. 模型預想：以頁面為端點、一定時間內同時看過連線(Network)；end to end binary classification
+1. y=1是4月，建模的資料不可以用到，實用是多久更新一次，幾天給名單?需再跟業管單位確認
+    - 現行是每天以rule-based的方法產製名單
+1. 只用4月當Y=1會不會bias?
+    - 不會。2020年，1-4月資料樣貌雷同(https://datastudio.google.com/reporting/2e6c7be5-764c-4641-a8e3-27617321937a)
+1. 瀏覽紀錄的次數(每個ID看過幾頁)也許是個強特徵
+1. 有2筆特別的id格式，刪除。
+1. 7z、gzip壓縮
+1. 模型預想：以頁面為端點、一定時間內同時看過連線(Network)；end to end binary classification
 
 ## 5/4/2020_3-4pm
-
 ### 與會人
 - 中研院：王釧茹老師、匡顯吉、張嘉元、簡伯銓
 - 玉山銀行：晨揚經理、倚任副理、甫璋、冠吉、品瑜(會議記錄)
@@ -151,13 +184,13 @@ End_of_2020:active,  des2, 2020-12-15, 2w
         - 卡友貸線上申請：  /EsunCreditweb/txnservice/mlapsend
     - 建模資料
         - [範例樣本(一天) 277 KB](https://storage.cloud.google.com/cft_shared/v01_demo_features_y_in_one_day)
-        - [clientId(y=0) 120,000筆, 2.46 MB](https://storage.cloud.google.com/cft_shared/v01_id_random_y0_202004)
-        - [clientId(y=1) 11,007筆, 230 KB](https://storage.cloud.google.com/cft_shared/v01_id_all_y1_202004)
-        - [登入Log資訊 2020/01 (y=0) 561 MB](https://storage.cloud.google.com/cft_shared/v01_selected_y0_features_y_range_2020_01)
-        - [登入Log資訊 2020/02 (y=0) 686 MB](https://storage.cloud.google.com/cft_shared/v01_selected_y0_features_y_range_2020_02)
-        - [登入Log資訊 2020/03 (y=0) 933 MB](https://storage.cloud.google.com/cft_shared/v01_selected_y0_features_y_range_2020_03)
-        - [登入Log資訊 2020/04 (y=0) 1.2 GB](https://storage.cloud.google.com/cft_shared/v01_selected_y0_features_y_range_2020_04)
-        - [登入Log資訊 2020/01-04 (y=1) 761 MB](https://storage.cloud.google.com/cft_shared/v01_y1_features_y_range_2020_01to04)
+        - [clientId(y=0 in 2020/04) 120,000筆, 2.46 MB](https://storage.cloud.google.com/cft_shared/v01_id_random_y0_202004)
+        - [clientId(y=1 in 2020/04) 11,007筆, 230 KB](https://storage.cloud.google.com/cft_shared/v01_id_all_y1_202004)
+        - [登入Log資訊 2020/01 (y=0 in 2020/04) 561 MB](https://storage.cloud.google.com/cft_shared/v01_selected_y0_features_y_range_2020_01)
+        - [登入Log資訊 2020/02 (y=0 in 2020/04) 686 MB](https://storage.cloud.google.com/cft_shared/v01_selected_y0_features_y_range_2020_02)
+        - [登入Log資訊 2020/03 (y=0 in 2020/04) 933 MB](https://storage.cloud.google.com/cft_shared/v01_selected_y0_features_y_range_2020_03)
+        - [登入Log資訊 2020/04 (y=0 in 2020/04) 1.2 GB](https://storage.cloud.google.com/cft_shared/v01_selected_y0_features_y_range_2020_04)
+        - [登入Log資訊 2020/01-04 (y=1 in 2020/04) 761 MB](https://storage.cloud.google.com/cft_shared/v01_y1_features_y_range_2020_01to04)
 
 ## Collaboration
 - [Dr. Chuan-Ju Wang ](https://www.citi.sinica.edu.tw/pages/cjwang/index_zh.html)
