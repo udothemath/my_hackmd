@@ -16,17 +16,18 @@ axisFormat %-m/%-d
 title Project Progress
 
 section Model Phase 1
-Next Meeting?:active, des2, 2020-06-22, 2w
-Data Discussion:active, des2, 2020-05-25, 4w
-Kick-off:done, des1, 2020-05-04, 3w
+The Coming Meeting?:active, des5, 2020-07-13, 2020-07-28
+Next Meeting?:active, des4, 2020-06-22, 2020-07-13
+Model Discussion:done, des3, 2020-05-25, 4w
+Data Discussion:done, des2, 2020-05-04, 3w
+Kick-off:done, des1, 2020-04-27, 1w
 section Model Phase 2
 End_of_2020:active,  des2, 2020-12-15, 2w
 ```
 ### 討論管道
 - [This HackMD](https://hackmd.io/UAZjUsvnQSKARtNsiKIgGQ?view)
 - [Slack](https://cfda-clip.slack.com/#/)
-- Google Meet: invitation will be provided at the end of the meeting 
-
+- Google Meet: Next meeting invitation is provided at the end of the discussion 
 
 ### 會議紀錄
 - [Latest Meeting](##Meeting)
@@ -37,31 +38,129 @@ End_of_2020:active,  des2, 2020-12-15, 2w
 ---
 ## Meeting
 
-## 6/22/2020
+## 6/22/2020 3-4PM
 ### 與會人
 - 中研院：王釧茹老師、匡顯吉、張嘉元、簡伯銓
-- 玉山銀行：甫璋、冠吉(會議記錄)、品瑜
+- 玉山銀行：甫璋、冠吉、品瑜(會議記錄)
+
+### ToDo
+|參與人員|信箱|
+|--|--|
+|王釧茹老師|jerewang@gmail.com|
+|匡顯吉|10832502@mail2.nccu.tw|
+|張嘉元|z7631614@gmail.com|
+|簡伯銓|bor810818@yahoo.com.tw|
+|施晨揚經理|kentesuntw@gmail.com|
+|葉倚任副理|yirenyeh@gmail.com|
+|孫甫璋|fuchang.sun@gmail.com|
+|蒲冠吉|pontussecret@gmail.com|
+|陳品瑜|pypychen@umich.edu|
 
 ### Recap
 > 在Google(or Facebook)廣告通路上，提供曾經瀏覽過玉山網頁的顧客所需要的產品/服務。現行的廣告投放名單篩選機制是根據顧客的網頁瀏覽行為，透過人工定義的條件篩選得出，惟此方法的篩選機制需要人工判斷，此專案希望可以藉由機器學習方法，降低人工調整名單的成本，提升名單轉換率，並發現活躍顧客的重要特徵。
+### 目標
+- 提升名單轉換率
+- 活躍顧客的重要特徵
 
 ### 今日議程
 #### 方法討論
 1. [瀏覽器cookie特性](https://datastudio.google.com/u/0/reporting/2e6c7be5-764c-4641-a8e3-27617321937a/page/3wsSB)
 1. 模型: 協同過濾方法(Collaborative filtering)
-    - ![](https://i.imgur.com/ANIoPlt.png)
-1. 驗證方法: precision, recall, or [MAP@N, mean average precision @ N](https://medium.com/@bond.kirill.alexandrovich/precision-and-recall-in-recommender-systems-and-some-metrics-stuff-ca2ad385c5f8)
+    - ![](https://i.imgur.com/DbyxCqq.jpg)
+1. 驗證方法: precision, recall, (or [MAP@N, mean average precision @ N](https://medium.com/@bond.kirill.alexandrovich/precision-and-recall-in-recommender-systems-and-some-metrics-stuff-ca2ad385c5f8) )
 1. 資料處理:
-    - 資料分割: 過去__天的ＵＲＬ造訪紀錄(建議短天期: 3-7天)，預測未來7天是否造訪產品申請頁面
+    - 資料分割: 過去__天的URL造訪紀錄(建議短天期: 3-7天)，預測未來7天是否造訪產品申請頁面
     - 目前規劃僅使用短天期的網頁瀏覽行為建模的兩個原因如下
         - 瀏覽器cookie容易失效的特性
         - 藉由資料EDA以及業務的了解，顧客通常會在短時間即有信貸/卡友貸的需求
+1. 建模進度分享:
+- 案例設定
+<table>
+    <thead>
+        <tr>
+            <th>Case</th>
+            <th>Training</th>
+            <th>Keywords in targeting URL</th>
+            <th>Number of record</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td> 1 </td>
+            <td rowspan=3>4/1-4/7</td>
+            <td rowspan=1>模型A: loan, Loan</td>
+            <td rowspan=3>500, 1000, 2000</td>
+        </tr>
+        <tr>
+            <td> 2 </td>
+            <td rowspan=1>模型B: /s/PersonalLoan, /EsunCreditweb/txnservice</td>
+        </tr>
+        <tr>
+            <td> 3 </td>
+            <td>模型C: 同模型B，interaction matrix負數改成0</td>
+        </tr>
+        <tr>
+            <td> 4 </td>
+            <td rowspan=3>4/1-4/14</td>
+            <td rowspan=1>模型A: loan, Loan</td>
+            <td rowspan=3>1000, 3000, 5000</td>
+        </tr>
+        <tr>
+            <td> 5 </td>
+            <td rowspan=1>模型B: /s/PersonalLoan, /EsunCreditweb/txnservice</td>
+        </tr>
+        <tr>
+            <td> 6 </td>
+            <td>模型C: 同模型B，interaction matrix負數改成0</td>
+        </tr>
+        <tr>
+            <td> 7 </td>
+            <td rowspan=3>4/1-4/21</td>
+            <td rowspan=1>模型A: loan, Loan</td>
+            <td rowspan=3>1000, 3000, 5000</td>
+        </tr>
+        <tr>
+            <td> 8 </td>
+            <td rowspan=1>模型B: /s/PersonalLoan, /EsunCreditweb/txnservice</td>
+        </tr>
+        <tr>
+            <td> 9 </td>
+            <td>模型C: 同模型B，interaction matrix負數改成0</td>
+        </tr>
+    </tbody>
+</table>
 
+- 初步結論:
+    - 模型結果: C > B > A 
+    - 觀測區間3-7日即可
+- 成效比較:
+    - [Precision and Recall with Details](https://esgarden.esunbank.com.tw/personal/esb20033/_layouts/15/WopiFrame.aspx?sourcedoc={7BB5C80A-0D6D-4C85-827C-D15BB348CB7C}&file=%E8%B2%B8%E6%AC%BE%E7%94%A2%E5%AD%B8%E5%90%88%E4%BD%9C%20%20baseline.docx&action=default)
+- 基本EDA:
+    - [2020 4月 每日y1 y0人數](https://esgarden.esunbank.com.tw/personal/esb20033/Documents/cft_loan/202004_y1y0_byDate.png)
+
+### 會議記錄
+#### Baseline Model:
+* Rule Based:
+    * 瀏覽紀錄 >= 5筆, y=1
+    * 在target頁前瀏覽紀錄 >= 4筆, y=1
+* Logistic Regression:
+    * 取每個clientID最長的session代表此用戶
+    * session的最後一頁視為該用戶的目標頁
+    * 類別變數做one-hot-encoding
+    * 約莫10個variables
+    * Precision > 0.99
+* ToDo: 扣掉y=1當天和前一天的瀏覽紀錄，retrain模型
+* [中研院簡報檔](!https://docs.google.com/presentation/d/191_9NhYNO-X6OCMqyBg-49Ahstc5RW4LL7oIWUYhkxQ/edit?usp=sharing)
+
+### 待辦
+- 調整權限
+- 下次會議時間
+- 下次討論內容
 
 ## 5/25/2020_3-4pm
 ### 與會人
 - 中研院：王釧茹老師、匡顯吉、張嘉元、簡伯銓
-- 玉山銀行：晨揚經理、倚任副理、甫璋、冠吉、品瑜(會議記錄)
+- 玉山銀行：晨揚經理、倚任副理、甫璋、冠吉(會議記錄)、品瑜
 
 ### 今日議程
 1. 建模資料討論
