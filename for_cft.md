@@ -17,7 +17,7 @@ title Project Progress
 
 section Model Phase 1
 The Coming Meeting?:active, des5, 2020-07-13, 2020-07-28
-Next Meeting?:active, des4, 2020-06-22, 2020-07-13
+Model Adjustment:active, des4, 2020-06-22, 2020-07-13
 Model Discussion:done, des3, 2020-05-25, 4w
 Data Discussion:done, des2, 2020-05-04, 3w
 Kick-off:done, des1, 2020-04-27, 1w
@@ -37,6 +37,16 @@ End_of_2020:active,  des2, 2020-12-15, 2w
 
 ---
 ## Meeting
+
+## 6/24/2020
+### 與數位貸款CFT的業務情境討論 
+
+1. 如何提供名單？現行的名單機制，直接透過Google Cloud Platform(GCP)，以Rule-based邏輯篩選得出。專案團隊目前的測試建模流程，需要將資料拉取至研發雲內，未來若由模型產出名單，該如何併入現行的名單機制。以下兩點建議：
+    1. (短期解法)可否藉由了解顧客的網頁瀏覽足跡，去找出與造訪目標頁面(y=1)高度相關的網頁 
+    2. (長期解法)若透過MLaaS提供建模後產出的名單，要跑額外的流程，必定會有時間上的延遲，是否可以直接在BigQuery的環境下建模，產出的模型名單直接串接上現行的名單提供機制。   
+2. y=1的其他可能預測值。除了現行的Y值以卡/信貸線上申請完成的頁面來建模外，建議也可以放寬至顧客至信貸線上申請進行申請的頁面
+    - 信貸-身分認證頁:/s/PersonalLoanApply/Landing/IDConfirm
+    - 卡貸-申請書頁: /EsunCreditweb/txnservice/AuthOTP
 
 ## 6/22/2020 3-4PM
 ### 與會人
@@ -149,13 +159,15 @@ End_of_2020:active,  des2, 2020-12-15, 2w
     * 類別變數做one-hot-encoding
     * 約莫10個variables
     * Precision > 0.99
-* ToDo: 扣掉y=1當天和前一天的瀏覽紀錄，retrain模型
+* ToDo: 
+    - 為了避免可能的data leakage問題，扣掉y=1當天和前一天的瀏覽紀錄，retrain模型
+    - 王老師建議調整每個顧客的瀏覽歷史紀錄(History)，將y=1的發生時間紀錄下來
 * [中研院簡報檔](!https://docs.google.com/presentation/d/191_9NhYNO-X6OCMqyBg-49Ahstc5RW4LL7oIWUYhkxQ/edit?usp=sharing)
 
 ### 待辦
-- 調整權限
-- 下次會議時間
-- 下次討論內容
+- 調整權限: Done
+- 下次會議時間: 7/13 3-4pm
+- 下次討論內容: 模型調整
 
 ## 5/25/2020_3-4pm
 ### 與會人
